@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer App</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .container {
+            width: 60%;
+            margin: auto;
+            margin-top: 10%;
+            border-radius: 10px;
+            background-color: rgb(3, 40, 15);
+            box-shadow: 0px 0px 10px rgb(133, 229, 255);
+            padding: 20px;
+        }
+        .h1 {
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgb(29, 232, 221);
+            color: aliceblue;
+        }
+        .timer {
+            text-align: center;
+            font-weight: bold;
+            font-size: 2rem;
+            color: white;
+        }
+        button {
+            width: 80px;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 8px;
+            margin: 10px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container w3-container w3-shadow">
+        <h1 class="h1 w3-center">Stopwatch</h1>
+        <p id="timer" class="timer">0.0</p>
+        <div class="buttons">
+            <button id="start" class="w3-button w3-round w3-green">Start</button>
+            <button id="pause" class="w3-button w3-round w3-yellow">Pause</button>
+            <button id="reset" class="w3-button w3-round w3-red">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        let count = 0; 
+        let time;
+        let running = false;
+
+        let startBtn = document.getElementById("start");
+        let pauseBtn = document.getElementById("pause");
+        let resetBtn = document.getElementById("reset");
+        let timer = document.getElementById("timer");
+
+        startBtn.addEventListener("click", function() {
+            if (!running) {
+                time = setInterval(() => {
+                    count += 0.1;
+                    timer.innerText = count.toFixed(1);
+                }, 100);
+                running = true;
+            }
+        });
+
+        pauseBtn.addEventListener("click", function() {
+            clearInterval(time);
+            running = false;
+        });
+
+        resetBtn.addEventListener("click", function() {
+            clearInterval(time);
+            count = 0;
+            timer.innerText = count.toFixed(1);
+            running = false;
+        });
+    </script>
+</body>
+</html>

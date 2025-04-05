@@ -1,0 +1,55 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Editor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid text-center">
+        <h1 class="m-5 text-center shadow-lg p-4">Image Editor</h1>
+        <img id="img" width="300px" height="300px" 
+             src="https://i.pinimg.com/474x/ad/2b/cc/ad2bcc0afd66d59f9281540d488cb443.jpg" alt="Image">
+        <input type="text" id="input" class="shadow form-control w-50 m-auto mt-3" 
+               placeholder="Enter Image URL">
+        <button class="btn btn-dark mt-3" onclick="SetImg()">Set Image</button>
+    </div>
+    <div class="text-center mx-5 container-fluid mt-3">
+        <button class="btn btn-info p-2 shadow-lg" onclick="Blur()">Blur</button>
+        <button class="btn btn-info p-2 shadow-lg" onclick="Grayscale()">Grayscale</button>
+        <button class="btn btn-info p-2 shadow-lg" onclick="Brightness()">Brightness</button>
+        <button class="btn btn-info p-2 shadow-lg" onclick="Sepia()">Sepia</button>
+        <button class="btn btn-info p-2 shadow-lg" onclick="Size()">Circle</button>
+        <button class="btn btn-danger p-2 shadow-lg" onclick="Reset()">Reset</button>
+    </div>
+    <script>
+        let img = document.getElementById("img");
+        function SetImg() {
+            let input = document.getElementById("input").value.trim();
+            img.setAttribute("src", input);
+        }
+      function Blur() {
+            img.style.filter = "blur(5px)";
+        }
+        function Grayscale() {
+            img.style.filter = "grayscale(100%)";
+        }
+        function Brightness() {
+            img.style.filter = "brightness(200%)";
+        }
+        function Sepia() {
+            img.style.filter = "sepia(100%)";
+        }
+        function Size() {
+            img.style.borderRadius = "50%";
+        }
+        function Reset() {
+            img.style.filter = "none";
+            img.style.borderRadius = "0%";
+        }
+    </script>
+</body>
+</html>
