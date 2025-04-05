@@ -1,0 +1,154 @@
+1. What is Git?
+Git is a version control system (VCS) that tracks changes to your code files over time. It lets you:
+
+Save versions of your code
+
+Collaborate with others
+
+Undo mistakes
+
+Work on multiple features using branches
+
+2. What is GitHub?
+GitHub is a cloud platform where you can host your Git repositories online.
+
+Think of it like Google Drive but for your code
+
+Allows you to collaborate with others and share your projects
+
+3. Key Git Concepts
+Term	Meaning
+Repository	A project folder tracked by Git
+Commit	A snapshot of your code at a moment
+Branch	A separate version of your code
+Merge	Combining changes from one branch into another
+Remote	The GitHub version of your project
+Push	Send changes to GitHub
+Pull	Get changes from GitHub
+4. Getting Started with Git
+Step-by-step workflow:
+Step 1: Initialize a Git Repository
+bash
+Copy
+Edit
+git init
+Creates a new Git project in your folder.
+
+Step 2: Set Global Config (Once per system)
+bash
+Copy
+Edit
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+Step 3: Create/Add a File
+bash
+Copy
+Edit
+echo "This is my project" > index.html
+Step 4: Check Status
+bash
+Copy
+Edit
+git status
+Step 5: Add Files
+bash
+Copy
+Edit
+git add index.html      # Add single file
+git add .               # Add all files
+Step 6: Commit Changes
+bash
+Copy
+Edit
+git commit -m "Initial commit"
+5. Connect to GitHub (Remote)
+Step 7: Create a GitHub Repo
+(Do this from GitHub UI)
+
+Step 8: Link it with your local repo
+bash
+Copy
+Edit
+git remote add origin https://github.com/yourusername/reponame.git
+Step 9: Push to GitHub
+bash
+Copy
+Edit
+git push -u origin main
+6. Working with Branches
+Create a Branch
+bash
+Copy
+Edit
+git branch feature1
+Switch to Branch
+bash
+Copy
+Edit
+git checkout feature1
+Shortcut: Create + switch
+bash
+Copy
+Edit
+git checkout -b feature1
+Do changes, add, and commit
+bash
+Copy
+Edit
+git add .
+git commit -m "Updated in feature1 branch"
+Push Branch to GitHub
+bash
+Copy
+Edit
+git push origin feature1
+7. Merge Branch into Main
+Step 1: Switch to main
+bash
+Copy
+Edit
+git checkout main
+Step 2: Merge feature1
+bash
+Copy
+Edit
+git merge feature1
+Step 3: Push to GitHub
+bash
+Copy
+Edit
+git push origin main
+Delete the branch (optional)
+bash
+Copy
+Edit
+git branch -d feature1           # Local
+git push origin --delete feature1  # GitHub
+8. Useful Commands Summary
+Command	Description
+git status	Check current changes
+git log	View commit history
+git diff	See file differences
+git clone <url>	Copy a GitHub repo
+git pull	Get latest changes
+git reset	Undo staged/committed changes
+git rm	Delete a file from repo
+git restore	Discard file changes
+9. Collaboration Flow (Team Project)
+Leader creates repo and pushes a file data.txt
+
+Each team member:
+
+Clones the repo
+
+Creates a new branch (branch1, branch2, etc.)
+
+Adds personal data to data.txt
+
+Pushes the branch to GitHub
+
+Creates a Pull Request
+
+Leader reviews and merges branches into main
+
+Merged branches are deleted after merge
